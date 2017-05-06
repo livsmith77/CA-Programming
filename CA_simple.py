@@ -17,7 +17,7 @@ def get_commits(data):
             # parse each of the commment lines 
             commit_details = data[index+2:data.index(sep,index+1)]
             
-            # the author with spaces at end removed.
+            # commit text
             commit = {'revision': details[0].strip(),
                 'author': details[1].strip(),
                 'date': details[2].strip(),
