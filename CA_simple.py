@@ -13,11 +13,16 @@ def get_commits(data):
         try:
             # parse each of the commits and put them into a list of commits
             details = data[index + 1].split('|')
+            
+            # parse each of the commment lines 
+            commit_details = data[index+2:data.index(sep,index+1)]
+            
             # the author with spaces at end removed.
             commit = {'revision': details[0].strip(),
                 'author': details[1].strip(),
                 'date': details[2].strip(),
-                'number_of_lines': int(details[3].strip().split(' ')[0])
+                'number_of_lines': int(details[3].strip().split(' ')[0]), 
+                'commit_details' : commit_details[-1]
             }
             # add details to the list of commits.
             commits.append(commit)
