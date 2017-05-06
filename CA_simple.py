@@ -1,5 +1,4 @@
 import csv
-import datetime
 
 def read_file(changes_file):
     # use strip to strip out spaces and trim the line.
