@@ -21,7 +21,7 @@ def get_commits(data):
             # commit text
             commit = {'revision': details[0].strip(),
                 'author': details[1].strip(),
-                'date': details[2].strip(),
+                'date': (details[2][0:11]).strip(),
                 'year': (details[2][0:5]).strip(),
                 'month': (details[2][36:40]).strip(),
                 'time_stamp': (details[2][11:20]).strip(),
@@ -44,7 +44,7 @@ if __name__ == '__main__':
     # print the number of lines read
     # print(len(data))
     # print(commits)
-    print(commits[3])
+    print(commits)
     # print(commits[1]['author'])
     # print(len(commits))
     
