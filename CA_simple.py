@@ -1,3 +1,4 @@
+import csv
 
 def read_file(changes_file):
     # use strip to strip out spaces and trim the line.
@@ -39,7 +40,18 @@ if __name__ == '__main__':
 
     # print the number of lines read
     # print(len(data))
-    #print(commits)
-    print(commits[0])
-    #print(commits[1]['author'])
-    #print(len(commits))
+    # print(commits)
+    print(commits[3])
+    # print(commits[1]['author'])
+    # print(len(commits))
+    
+with open("CA_output.csv",'wb') as f:
+   # Using dictionary keys as fieldnames for the CSV file header
+   writer = csv.DictWriter(f, commits[0].keys())
+   writer.writeheader()
+   for d in commits:
+      writer.writerow(d)
+    
+    
+    
+    
