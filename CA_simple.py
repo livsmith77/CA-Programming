@@ -1,4 +1,5 @@
 import csv
+import datetime
 
 def read_file(changes_file):
     # use strip to strip out spaces and trim the line.
@@ -22,8 +23,11 @@ def get_commits(data):
             commit = {'revision': details[0].strip(),
                 'author': details[1].strip(),
                 'date': details[2].strip(),
-                'number_of_lines': int(details[3].strip().split(' ')[0]), 
-                'commit_details' : commit_details[-1]
+                'year': (details[2][0:5]).strip(),
+                'month': (details[2][36:40]).strip(),
+                'time_stamp': (details[2][11:20]).strip(),
+                'number_of_lines': (details[3].strip().split(' ')[0]), 
+                'commit_details': commit_details[-1]
             }
             # add details to the list of commits.
             commits.append(commit)
